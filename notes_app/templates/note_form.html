@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% if note %}Редагування{% else %}Створення{% endif %} нотатки</title>
+    <link rel="stylesheet" href="{% static 'styles_note.css' %}">
+</head>
+<body>
+    <h1>{% if note %}Редагування{% else %}Створення{% endif %} нотатки</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Зберегти</button>
+    </form>
+    <a href="{% url 'home' %}">Назад</a>
+</body>
+</html>

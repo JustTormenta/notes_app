@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Нотатки</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>Мої наступні нотатки</h1>
+    <div class="notes-container">
+        {% for note in notes %}
+            <div class="note">
+                <h2>{{ note.title }}</h2>
+                <p>{{ note.text }}</p>
+                <p><strong>Нагадування:</strong> {{ note.reminder|default:"-" }}</p>
+                <p><strong>Категорія:</strong> {{ note.category.title }}</p>
+            </div>
+        {% empty %}
+            <p>Немає нотаток.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

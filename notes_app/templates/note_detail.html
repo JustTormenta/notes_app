@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ note.title }}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="note">
+        <h1>{{ note.title }}</h1>
+        <p>{{ note.text }}</p>
+        <p><strong>Нагадування:</strong> {{ note.reminder|default:"-" }}</p>
+        <p><strong>Категорія:</strong> {{ note.category.title }}</p>
+
+        <a href="{% url 'edit_note' note.pk %}">Редагувати</a>
+        <form method="post" action="{% url 'delete_note' note.pk %}">
+            {% csrf_token %}
+            <button type="submit">Видалити</button>
+        </form>
+        <a href="{% url 'home' %}">Назад</a>
+    </div>
+</body>
+</html>

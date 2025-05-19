@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Видалити</title>
+    <link rel="stylesheet" href="{% static 'styles_note.css' %}">
+</head>
+<body>
+    <h1>Видалити нотатку "{{ note.title }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Так, видалити</button>
+    </form>
+    <a href="{% url 'note_detail' note.pk %}">Скасувати</a>
+</body>
+</html>

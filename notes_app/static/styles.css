@@ -1,0 +1,18 @@
+body {
+    font-family: sans-serif;
+    background-color: #f2f2f2;
+    padding: 40px;
+}
+
+.notes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.note {
+    background-color: #fff;
+    border-left: 6px solid #3498db;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
